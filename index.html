@@ -8,25 +8,29 @@
 </head>
 <body>
   <div class="page-container">
-    <header>
+    <header class="header">
       header
     </header>
     
     <main class="main">
-      <product-element data-product-name="product-1" data-product-desc="product-1-desc" data-versions-list="1, 2, 3"></product-element>
-      <product-element data-versions-list="1, 2, 3"></product-element>
-      <product-element data-versions-list="1, 2, 3"></product-element>
-      <product-element data-versions-list="1, 2, 3, 4, 5, 6"></product-element>
-      <product-element data-versions-list="1, 2, 3, 4, 5, 6"></product-element>
-      <product-element data-versions-list="1, 2, 3, 4, 5, 6"></product-element>
+      <product-element class="product-element" data-product-name="product-1" data-product-desc="product-1-desc" data-versions-list="1, 2, 3">
+      <!-- <versions-list-container style="display: none;"></versions-list-container> -->
+      </product-element>
+      <product-element class="product-element" data-versions-list="1, 2, 3"></product-element>
+      <product-element class="product-element" data-versions-list="1, 2, 3"></product-element>
+      <product-element class="product-element" data-versions-list="1, 2, 3, 4, 5, 6"></product-element>
+      <product-element class="product-element" data-versions-list="1, 2, 3, 4, 5, 6"></product-element>
+      <product-element class="product-element" data-versions-list=""></product-element>
+
+      <!-- <versions-list-container></versions-list-container> -->
     </main>
 
-  <footer>
+  <footer class="footer">
     footer
   </footer>
   </div>
 
 
-  <script src="productElement.js"></script>
+  <script src="productElement.js" type="module"></script>
 </body>
 </html>

@@ -1,8 +1,15 @@
 "use strict"
+import { VersionsListComponent } from "./versions-list-component.js";
 
-class productElement extends HTMLElement {
+// TODO: think about do it like <template>
+// https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_templates_and_slots#the_truth_about_templates
+class ProductElement extends HTMLElement {
   constructor() {
     super()
+    if (this.getAttribute('data-versions-list')) {
+      this.versionsListComponent = new VersionsListComponent(this.getAttribute('data-versions-list'));
+      // console.log('super', this.getAttribute('data-versions-list'));
+    }    
   }
   
   breakpoints = {
@@ -11,13 +18,13 @@ class productElement extends HTMLElement {
     desktop: 1024
   };
   desctopDefaultView = `
-    <div>
+    <div class="default-view default-view_desctop">
       desctop DefaultView
     </div>
   `;
 
   mobileDefaultView = `
-    <div>
+    <div class="default-view default-view_mobile">
       mobile DefaultView
     </div>
   `;
@@ -45,12 +52,14 @@ class productElement extends HTMLElement {
   productContainerStyleSheet = new CSSStyleSheet();
 
   initialDesignType;
+  versionsListComponent; 
+
   
   connectedCallback() {
-    console.log("Custom element added to page.");
+    // console.log("Custom element added to page.");
     // Create a shadow root
     const shadow = this.attachShadow({ mode: "open" });
-    console.log(shadow);
+    // console.log(shadow);
 
     const productContainer = document.createElement('div');
     productContainer.classList.add('product-container');
@@ -69,7 +78,6 @@ class productElement extends HTMLElement {
   display: block;
   height: 400px;
   width: 400px;
-  border: 1px red solid;
 }`);
 
   shadow.adoptedStyleSheets = [this.productContainerStyleSheet];
@@ -84,24 +92,18 @@ class productElement extends HTMLElement {
     
 
     this.addEventListener('mouseenter', (e) => {
-      if (this.hasAttribute('data-versions-list')) {
+      if (this.hasAttribute('data-versions-list') && this.getAttribute('data-versions-list')) {        
         e.stopImmediatePropagation(); //TODO: research it
         // всегла на ивент будет создавать versionsList - есть смысл создать до тригерра ивента
-        const versionsList = document.createElement('div');
-        console.log(typeof this.getAttribute('data-versions-list'));
-        
-        this.getAttribute('data-versions-list').split(',').forEach(version => {
-          versionsList.insertAdjacentHTML('afterbegin', `
-              <a class="version"> Версия ${version}</a>
-            `)
-        });
-        
-        productContainer.innerHTML = versionsList.innerHTML;        
+        productContainer.querySelector('.default-view').classList.add('hidden');
+        productContainer.insertBefore(this.versionsListComponent, productContainer.firstChild);
       }
     });
 
     this.addEventListener('mouseleave', () => {
-      setDefaultDesign();
+      
+      // this.versionsListComponent.remove();
+      // setDefaultDesign();
     })
   }
 
@@ -126,4 +128,4 @@ class productElement extends HTMLElement {
 
 
 
-customElements.define("product-element", productElement);
+customElements.define("product-element", ProductElement);

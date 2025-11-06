@@ -12,17 +12,17 @@
       header
     </header>
     
-    <main class="main">
-      <product-element class="product-element" data-product-name="product-1" data-product-desc="product-1-desc" data-versions-list="1, 2, 3">
-      <!-- <versions-list-container style="display: none;"></versions-list-container> -->
-      </product-element>
-      <product-element class="product-element" data-versions-list="1, 2, 3"></product-element>
-      <product-element class="product-element" data-versions-list="1, 2, 3"></product-element>
-      <product-element class="product-element" data-versions-list="1, 2, 3, 4, 5, 6"></product-element>
-      <product-element class="product-element" data-versions-list="1, 2, 3, 4, 5, 6"></product-element>
-      <product-element class="product-element" data-versions-list=""></product-element>
-
-      <!-- <versions-list-container></versions-list-container> -->
+    <main class="main main_light">
+      <div class="products-container">      
+        <product-element class="product-element" data-product-name="product-1" data-product-desc="product-1-desc" data-versions-list="1, 2, 3">
+        </product-element>
+        <product-element class="product-element" data-versions-list="1, 2, 3"></product-element>
+        <product-element class="product-element" data-versions-list="1, 2, 3"></product-element>
+        <product-element class="product-element" data-versions-list="1, 2, 3, 4, 5, 6"></product-element>
+        <product-element class="product-element" data-versions-list="1, 2, 3, 4, 5, 6"></product-element>
+        <product-element class="product-element" data-versions-list="xx"></product-element>
+        <product-element class="product-element" data-versions-list="yyy"></product-element>
+      </div>
     </main>
 
   <footer class="footer">
@@ -34,3 +34,10 @@
   <script src="productElement.js" type="module"></script>
 </body>
 </html>
+
+<!-- TODO: list of props for product-element aka attrs for example 
+    - title
+    - desc
+    ...  
+-->
+<!-- TODO: .mascote custom element -->

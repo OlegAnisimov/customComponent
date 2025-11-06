@@ -1,6 +1,51 @@
+:root {
+  --vw: 1vw;
+  --vh: 1vh;
+
+  --bcgVersionsContainer: rgba(199, 197, 197, 1);
+  --bcgDefaultView: rgba(151, 151, 151, 0.75);
+  --opaqueWhite: rgba(255, 255, 255, 1);
+  --uniformGrey: rgba(168, 168, 168, 1);
+  --black: rgba(0, 0, 0, 1);
+  --grey85: rgba(217, 217, 217, 1);
+
+  --fontWeightMedium: 500;
+  --fontWeightSemiBold: 600;
+  --fontWeightBold: 700;
+}
+
 * {
-  margin: 0;
+  box-sizing: border-box;
   padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+a {
+  all: unset;
+}
+
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  font-family: 'Manrope', sans-serif;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  /* width: 100%;
+  height: 100%; */
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  overflow: hidden;
+  background: #2e2e2e;
+  background-image: url('./assets/img/space.svg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  line-height: 1;
 }
 
 .page-container {
@@ -21,15 +66,68 @@
   overflow-y: auto;
 }
 
+.products-container {
+  width: 100%;
+  max-width: 1440px;
+  position: relative;
+  display: flex;
+  /* flex-direction: column; */
+  flex-wrap: wrap;
+  row-gap: 3rem;
+  column-gap: 5rem;
+}
+
 .product-element {
   border: 1px red solid;
   /* width: 30%;
   max-width: 400px; */
 }
 
+.page-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, #ffffff, rgba(231, 231, 231, 0.3), #ffffff);
+  background-color: #ffffff78;
+}
+
+.header {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2rem;
+  align-items: center;
+  background: var(--opaqueWhite);
+}
+
+.main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  overflow-y: auto;
+  outline: none;
+}
+
+
 .header,
 .footer {
   border: 1px black solid;
+}
+
+.footer {
+  height: 4.6rem;
+  display: flex;
+  align-items: center;
+  padding-left: 6rem;
+  font-weight: var(--fontWeightMedium);
+  line-height: 100%;
+  letter-spacing: 0;
 }
 
 /* utils */

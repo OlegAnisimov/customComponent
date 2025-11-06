@@ -37,6 +37,7 @@ export class VersionsListComponent extends HTMLElement {
                 <a class="version"> Версия ${version}</a>
               `)
       });
+      
       this.versionsListStyleSheet.replaceSync(`.versions-list-container {
         display: flex;
         flex-direction: column;

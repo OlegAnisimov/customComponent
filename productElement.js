@@ -102,8 +102,8 @@ class ProductElement extends HTMLElement {
 
     this.addEventListener('mouseleave', () => {
       
-      // this.versionsListComponent.remove();
-      // setDefaultDesign();
+      this.versionsListComponent.remove();
+      setDefaultDesign();
     })
   }
 

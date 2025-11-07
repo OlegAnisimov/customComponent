@@ -18,15 +18,32 @@ class ProductElement extends HTMLElement {
     desktop: 1024
   };
   desctopDefaultView = `
-    <div class="default-view default-view_desctop">
-      desctop DefaultView
+  <div class="default-view default-view_laptop productContainerPart">
+    <div class="product__help product__help_upper productContainerPart">
+      <span class="productContainerPart">?</span>
     </div>
+    <div class="col-left productContainerPart">
+      <p class="product__desc productContainerPart">Виртуализация<br />IT-инфраструктуры<br />предприятия</p>
+      <h2 class="product__heading productContainerPart">SpaceVM</h2>
+    </div>
+  
+    <div class="col-right productContainerPart">
+  
+      <img src="./assets/img/SpaceVM.svg" alt="Product logo" class="product__logo productContainerPart">
+    </div>
+  </div>
   `;
 
   mobileDefaultView = `
-    <div class="default-view default-view_mobile">
-      mobile DefaultView
+  <div class="default-view_mobile">
+    <div class="default-view__controls">
+      <h2 class="product__heading_mobile">SpaceVM</h2>
+      <span class="choose-version-button" tabindex="0">Выбор версии</span>
+      <span class="about-product-button" tabindex="0">О продукте</span>
     </div>
+  
+    <img src="./assets/img/SpaceVM.svg" alt="Product logo" class="product__logo product__logo_mobile">
+  </div>
   `;
 
 
@@ -78,7 +95,15 @@ class ProductElement extends HTMLElement {
   display: block;
   height: 400px;
   width: 400px;
+
+  .hidden {
+  display: none;
+  }
 }`);
+
+// this.productContainerStyleSheet.replaceSync(`.hidden {
+//   display: none;
+// }`);
 
   shadow.adoptedStyleSheets = [this.productContainerStyleSheet];
     

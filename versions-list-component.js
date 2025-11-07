@@ -37,7 +37,7 @@ export class VersionsListComponent extends HTMLElement {
                 <a class="version"> Версия ${version}</a>
               `)
       });
-      
+
       this.versionsListStyleSheet.replaceSync(`.versions-list-container {
         display: flex;
         flex-direction: column;
@@ -54,7 +54,7 @@ export class VersionsListComponent extends HTMLElement {
   }
 
   disconnectedCallback() {
-    console.log("Custom element removed from page.");
+    console.log("Custom element VersionsListComponent removed from page.");
   }
 
   connectedMoveCallback() {
@@ -71,3 +71,11 @@ export class VersionsListComponent extends HTMLElement {
 }
 
 customElements.define("versions-list-container", VersionsListComponent);
+/* TODO: 
+  СХЕМА ПОЛУЧЕНИЯ ДАННЫХ
+  при mouseenter делать запос
+  
+
+  минусы
+  каждый раз при mouseenter делать запрос
+**/

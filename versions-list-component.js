@@ -38,14 +38,71 @@ export class VersionsListComponent extends HTMLElement {
               `)
       });
 
-      this.versionsListStyleSheet.replaceSync(`.versions-list-container {
-        display: flex;
-        flex-direction: column;
-        height: 400px;
-        width: 100%;
-        max-width: 400px;
-        border: 1px green solid;
-        }`);
+      this.versionsListStyleSheet.replaceSync(`
+        .versions-list-container {
+          display: flex;
+          flex-direction: column;
+          height: 400px;
+          width: 100%;
+          max-width: 400px;
+          border: 1px green solid;
+              }
+              
+        .version__link {
+          width: 98%;
+          height: 77px;
+          display: none;
+          justify-content: space-around;
+          align-items: center;
+          position: relative;
+          font-size: 16px;
+          text-align: center;
+          text-decoration: none;
+          transition: all 0.3s ease;
+          line-height: 20px;
+          opacity: 0.5;
+          pointer-events: none;
+      }
+
+      .version__link.mobile {
+          transition: all .3s ease-in-out .3s;
+      }
+
+      .version__link.active {
+        display: block;
+        font-size: 32px;
+        opacity: 1;
+        transform: scale(1);
+        cursor: pointer;
+        pointer-events: auto;
+        background: rgba(217, 217, 217, 1);
+        border-radius: 12px;
+      }
+
+      .version__link.adjacent {
+        display: block;
+        font-size: 24px;
+        opacity: 0.8;
+        transform: scale(0.8);
+        height: 20px;
+      }
+
+      .version__link.distant {
+        display: block;
+        font-size: 20px;
+        opacity: 0.6;
+        transform: scale(0.6);
+        height: 20px;
+      }
+
+      .top-version {
+        margin-top: 77px;
+      }
+
+      .bottom-version {
+        margin-bottom: 77px;
+      }
+        `);
       shadow.adoptedStyleSheets = [this.versionsListStyleSheet];
         console.log(shadow);
     }
